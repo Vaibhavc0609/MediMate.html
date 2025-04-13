@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Buddy</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="container mx-auto px-4 py-6">
+    <h1 class="text-3xl font-bold mb-4 text-center">Campus Buddy</h1>
+
+    <!-- Dashboard -->
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">Today's Overview</h2>
+      <div class="bg-white p-4 rounded shadow">
+        <p id="today-date" class="mb-2 font-medium text-lg"></p>
+        <ul id="tasks-list" class="list-disc ml-6"></ul>
+      </div>
+    </section>
+
+    <!-- To-Do List -->
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">To-Do List</h2>
+      <div class="bg-white p-4 rounded shadow">
+        <input type="text" id="todo-input" placeholder="Add new task..." class="border p-2 w-full mb-2">
+        <button onclick="addTask()" class="bg-blue-500 text-white px-4 py-2 rounded">Add Task</button>
+        <ul id="todo-list" class="mt-4 list-disc ml-6"></ul>
+      </div>
+    </section>
+
+    <!-- Class Schedule -->
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">Weekly Class Schedule</h2>
+      <div class="bg-white p-4 rounded shadow">
+        <table class="w-full border">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="p-2">Day</th>
+              <th class="p-2">Subjects</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-2">Monday</td><td class="p-2">Math, Physics</td></tr>
+            <tr><td class="p-2">Tuesday</td><td class="p-2">English, Computer</td></tr>
+            <tr><td class="p-2">Wednesday</td><td class="p-2">Math, Chemistry</td></tr>
+            <tr><td class="p-2">Thursday</td><td class="p-2">Biology, Computer</td></tr>
+            <tr><td class="p-2">Friday</td><td class="p-2">Physics, Sports</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Events Board -->
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">Upcoming Events</h2>
+      <div class="bg-white p-4 rounded shadow">
+        <ul id="events-list" class="list-disc ml-6">
+          <li>Tech Fest - 12th April</li>
+          <li>Workshop on AI - 20th April</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Display today's date
+    document.getElementById('today-date').innerText = Date: ${new Date().toLocaleDateString()};
+
+    // Add new task to the to-do list
+    function addTask() {
+      const input = document.getElementById('todo-input');
+      const task = input.value.trim();
+      if (task) {
+        const li = document.createElement('li');
+        li.textContent = task;
+        document.getElementById('todo-list').appendChild(li);
+        input.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
